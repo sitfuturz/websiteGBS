@@ -22,15 +22,16 @@
         :root {
             --primary: #540A0E;
             --secondary: #FFFFFF;
+            --accent: #a22a30;
         }
 
         .bg-primary { background-color: var(--primary); }
         .text-primary { color: var(--primary); }
         .border-primary { border-color: var(--primary); }
 
-        .navbar-sticky {
+        #navbar {
             backdrop-filter: blur(10px);
-            background: var(--secondary); /* Changed to white */
+            background: var(--secondary); 
         }
 
         #navbar a {
@@ -38,7 +39,47 @@
         }
 
         #navbar a:hover {
-            color: var(--secondary); /* Optional: Change hover color to white */
+            color: var(--accent); /* Optional: Change hover color to white */
+        }
+
+        /* Back to Top styles */
+        .back-to-top {
+            position: fixed;
+            right: 1.25rem; /* 20px */
+            bottom: 1.25rem;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), #7b1a20);
+            color: #fff;
+            border-radius: 9999px;
+            border: 2px solid rgba(255,255,255,0.8);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 6px 6px rgba(0,0,0,0.2);
+            opacity: 0;
+            transform: translateY(12px) scale(0.95);
+            transition: opacity .3s ease, transform .3s ease, box-shadow .3s ease, background .3s ease;
+            pointer-events: none;
+            cursor: pointer;
+            z-index: 60;
+        }
+        .back-to-top:hover {
+            transform: translateY(0) scale(1);
+            box-shadow: 0 16px 24px rgba(0,0,0,0.3);
+        }
+        .back-to-top i { font-size: 1rem; }
+        .back-to-top.show {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        /* Masonry helpers */
+        .masonry > * {
+            break-inside: avoid;
+            -webkit-column-break-inside: avoid;
+            -moz-column-break-inside: avoid;
         }
     </style>
 </head>
@@ -49,16 +90,15 @@
         <div class="container mx-auto px-4 flex items-center justify-between">
             <!-- Logo -->
             <div class="flex items-center space-x-2">
-                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                    <i class="fas fa-network-wired text-primary text-xl"></i>
-                </div>
-                <img src="./images/gbs-logo (1).png" alt="" class="h-10">
+                <img src="./images/gbs-logo (1).png" alt="" class="h-20">
             </div>
             
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#home" class="text-white hover:text-gray-300 transition-colors">Home</a>
                 <a href="#about" class="text-white hover:text-gray-300 transition-colors">About</a>
+                <a href="#product" class="text-white hover:text-gray-300 transition-colors">Product</a>
+                <a href="#franchise" class="text-white hover:text-gray-300 transition-colors">Franchise</a>
                 <a href="#connect" class="text-white hover:text-gray-300 transition-colors">Connect</a>
                 <a href="#team" class="text-white hover:text-gray-300 transition-colors">Team</a>
                 <a href="#gallery" class="text-white hover:text-gray-300 transition-colors">Gallery</a>
@@ -66,11 +106,11 @@
             
             <!-- Join Button -->
             <div class="hidden md:block">
+                <a href="https://gbs-connect.com/">
                 <button class="bg-primary text-white px-6 py-2 rounded-full font-semibold pulse-animation hover:opacity-90 transition-colors">
-                    <a href="https://gbs-connect.com/">
                         Join Now
-                    </a>
-                </button>
+                    </button>
+                </a>
             </div>
             
             <!-- Mobile Menu Button -->
@@ -86,14 +126,16 @@
             <div class="container mx-auto px-4 py-4 space-y-4">
                 <a href="#home" class="block text-primary py-2">Home</a>
                 <a href="#about" class="block text-primary py-2">About</a>
+                <a href="#product" class="block text-primary py-2">Product</a>
+                <a href="#franchise" class="block text-primary py-2">Franchise</a>
                 <a href="#connect" class="block text-primary py-2">Connect</a>
                 <a href="#team" class="block text-primary py-2">Team</a>
                 <a href="#gallery" class="block text-primary py-2">Gallery</a>
+                <a href="https://gbs-connect.com/">
                 <button class="bg-primary text-white px-6 py-2 rounded-full font-semibold w-full">
-                    <a href="https://gbs-connect.com/">
                         Join Now
-                    </a>
-                </button>
+                    </button>
+                </a>
             </div>
         </div>
     </nav>
@@ -108,9 +150,11 @@
                         <div class="relative z-10 text-center text-white" data-aos="fade-up">
                             <h1 class="text-4xl md:text-6xl font-bold mb-4">Connect. Network. Grow.</h1>
                             <p class="text-xl md:text-2xl mb-8">Join the Global Business Social community</p>
+                            <a href="https://gbs-connect.com/member-application" target="_blank">
                             <button class="bg-primary text-white px-8 py-3 rounded-full font-semibold text-lg hover:opacity-90 transition-colors">
                                 Start Networking
                             </button>
+                            </a>
                         </div>
                         <img src="./images/gbds.avif" alt="Business networking" class="absolute inset-0 w-full h-full object-cover opacity-30">
                     </div>
@@ -121,11 +165,13 @@
                         <div class="relative z-10 text-center text-white" data-aos="fade-up">
                             <h1 class="text-4xl md:text-6xl font-bold mb-4">Build Meaningful Partnerships</h1>
                             <p class="text-xl md:text-2xl mb-8">Connect with like-minded business professionals</p>
+                            <a href="https://gbs-connect.com/member-application" target="_blank"></a>
                             <button class="bg-primary text-white px-8 py-3 rounded-full font-semibold text-lg hover:opacity-90 transition-colors">
                                 Join a Chapter
                             </button>
+                            </a>
                         </div>
-                        <img src="images/gbs2.avif" alt="Business partnerships" class="absolute inset-0 w-full h-full object-cover opacity-30">
+                        <img src="images/image-03.jpg" alt="Business partnerships" class="absolute inset-0 w-full h-full object-cover opacity-30">
                     </div>
                 </div>
                 <div class="swiper-slide">
@@ -134,11 +180,13 @@
                         <div class="relative z-10 text-center text-white" data-aos="fade-up">
                             <h1 class="text-4xl md:text-6xl font-bold mb-4">Expand Your Business</h1>
                             <p class="text-xl md:text-2xl mb-8">Unlock new opportunities through networking</p>
+                               <a href="https://gbs-connect.com/member-application" target="_blank"></a>
                             <button class="bg-primary text-white px-8 py-3 rounded-full font-semibold text-lg hover:opacity-90 transition-colors">
                                 Explore Opportunities
                             </button>
+                            </a>
                         </div>
-                        <img src="images/gbs3.jpeg" alt="Business growth" class="absolute inset-0 w-full h-full object-cover opacity-30">
+                        <img src="images/image-2.jpg" alt="Business growth" class="absolute inset-0 w-full h-full object-cover opacity-30">
                     </div>
                 </div>
             </div>
@@ -156,7 +204,7 @@
             
             <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
                 <div data-aos="fade-right">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    <img src="images/Screenshot_2025-08-10-02-07-23-54_a23b203fd3aafc6dcb84e438dda678b6.jpg" 
                          alt="Business networking" class="rounded-lg shadow-lg hover-zoom">
                 </div>
                 <div data-aos="fade-left">
@@ -173,11 +221,11 @@
                     </p>
                     <div class="flex space-x-8">
                         <div class="text-center">
-                            <div class="counter" data-target="500">0</div>
+                            <div class="counter" data-target="100">0</div>
                             <p class="text-gray-600">Active Members</p>
                         </div>
                         <div class="text-center">
-                            <div class="counter" data-target="50">0</div>
+                            <div class="counter" data-target="5">0</div>
                             <p class="text-gray-600">Chapters</p>
                         </div>
                         <div class="text-center">
@@ -213,9 +261,137 @@
                         <p>Collaborate with fellow members to achieve mutual business growth and success.</p>
                     </div>
                 </div>
+                   <a href="https://gbs-connect.com/member-application" target="_blank">
                 <button class="bg-white text-primary px-8 py-3 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors">
                     Start Your Journey
                 </button>
+                </a>
+                <a href="#product" class="inline-block ml-4 mt-4 md:mt-0">
+                <button class="border border-white text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-white hover:text-primary transition-colors">
+                    Explore the GBS App
+                </button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Section -->
+    <section id="product" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <div class="relative mx-auto w-full max-w-sm md:max-w-md">
+                        <div class="rounded-[2.5rem] border-4 border-gray-200 shadow-xl overflow-hidden bg-black">
+                            <div class="product-swiper swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="images/apk-1.jpeg" alt="GBS App screenshot 1" class="w-full h-auto object-cover">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/apk-2.jpeg" alt="GBS App screenshot 2" class="w-full h-auto object-cover">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="images/apk-3.jpeg" alt="GBS App screenshot 3" class="w-full h-auto object-cover">
+                                    </div>
+                                </div>
+                                <div class="product-pagination swiper-pagination !relative !bottom-0 py-3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <h2 class="text-4xl font-bold text-primary mb-4">About GBS App</h2>
+                    <p class="text-gray-600 text-lg mb-6">A professional community app designed to help entrepreneurs and business owners connect, collaborate, and grow together. GBS focuses on real‑time engagement, simplified business interactions, and seamless communication within and across chapters.</p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                        <li class="flex items-start space-x-3"><i class="fas fa-handshake-angle text-primary mt-1"></i><span><strong>Referrals & Meetings:</strong> Easily punch referrals, submit referral slips, conduct one‑to‑one meetings, and record TYFCB acknowledgments with screenshot sharing.</span></li>
+                        <li class="flex items-start space-x-3"><i class="fas fa-quote-left text-primary mt-1"></i><span><strong>Testimonials:</strong> Give or request testimonials from members within or outside your chapter.</span></li>
+                        <li class="flex items-start space-x-3"><i class="fas fa-calendar-days text-primary mt-1"></i><span><strong>Events:</strong> View upcoming events, check nearest events, and add visitors directly to any event.</span></li>
+                        <li class="flex items-start space-x-3"><i class="fas fa-id-card text-primary mt-1"></i><span><strong>Business Card Scanner:</strong> Scan business cards and automatically save contacts with relevant details in your personal directory.</span></li>
+                        <li class="flex items-start space-x-3"><i class="fas fa-users text-primary mt-1"></i><span><strong>Member Directory:</strong> Explore a searchable, filterable list of members across chapters.</span></li>
+                        <li class="flex items-start space-x-3"><i class="fas fa-qrcode text-primary mt-1"></i><span><strong>QR Attendance & Info Sharing:</strong> Scan member QR codes to mark attendance and access their profile details instantly.</span></li>
+                        <li class="flex items-start space-x-3"><i class="fas fa-location-dot text-primary mt-1"></i><span><strong>Nearby Members:</strong> Use filters to find nearby members based on location and business category (1 to 10 km range).</span></li>
+                        <li class="flex items-start space-x-3"><i class="fas fa-trophy text-primary mt-1"></i><span><strong>Leaderboard:</strong> Track chapter and member activity points with various filters.</span></li>
+                        <li class="flex items-start space-x-3"><i class="fas fa-newspaper text-primary mt-1"></i><span><strong>GBS Wall:</strong> Share posts, engage through likes and comments, and stay active in your community.</span></li>
+                        <li class="flex items-start space-x-3"><i class="fas fa-id-badge text-primary mt-1"></i><span><strong>Profile Builder & Sharing:</strong> Build a detailed business profile with personal info, bio, growth sheet, top profiles, and weekly presentations exportable as a sharable PDF.</span></li>
+                        <li class="flex items-start space-x-3"><i class="fas fa-bell text-primary mt-1"></i><span><strong>Smart Notifications:</strong> Stay updated with Firebase‑powered alerts and reminders for activities, events, and more.</span></li>
+                    </ul>
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-6">
+                        <a href="https://apps.apple.com/in/app/global-business-social/id6747422810" target="_blank" class="inline-block">
+                            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="h-12">
+                        </a>
+                        <div class="flex items-center space-x-4">
+                            <img src="https://quickchart.io/qr?text=https%3A%2F%2Fapps.apple.com%2Fin%2Fapp%2Fglobal-business-social%2Fid6747422810&size=120" alt="QR code to App Store" class="h-20 w-20 rounded">
+                            <div>
+                                <p class="text-sm text-gray-500">Scan to download on iPhone</p>
+                                <a href="https://gbs-connect.com/" class="text-primary font-semibold hover:underline">Explore GBS Web</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Franchise Section -->
+    <section id="franchise" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <div class="flex items-center justify-center mb-4">
+                    <img src="images/gbs-logo (1).png" alt="GBS Franchise" class="h-12 w-auto">
+                </div>
+                <h2 class="text-4xl font-bold text-primary mb-3">Franchise Opportunities</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Build communities of thriving businesses in your city. Become a GBS Franchise Partner and lead meaningful networking with the power of the GBS platform.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 items-start">
+                <!-- Left: Highlights -->
+                <div class="bg-white rounded-2xl shadow-lg p-8" data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold text-primary mb-6">Why partner with GBS?</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3"><i class="fas fa-map-marker-alt text-primary mt-1"></i><span><strong>Exclusive Territory:</strong> Launch and grow GBS chapters in your allocated region.</span></li>
+                        <li class="flex items-start space-x-3"><i class="fas fa-chalkboard-teacher text-primary mt-1"></i><span><strong>Training & Playbook:</strong> Get comprehensive onboarding, SOPs, and leadership toolkit.</span></li>
+                        <li class="flex items-start space-x-3"><i class="fas fa-bullhorn text-primary mt-1"></i><span><strong>Marketing & Launch Kit:</strong> Brand assets, campaigns, and launch support.</span></li>
+                        <li class="flex items-start space-x-3"><i class="fas fa-mobile-screen text-primary mt-1"></i><span><strong>Technology Platform:</strong> Access to the GBS App and dashboards for smooth operations.</span></li>
+                        <li class="flex items-start space-x-3"><i class="fas fa-chart-line text-primary mt-1"></i><span><strong>Recurring Revenue Model:</strong> Scalable with chapter growth and member success.</span></li>
+                        <li class="flex items-start space-x-3"><i class="fas fa-headset text-primary mt-1"></i><span><strong>Continuous Support:</strong> Ongoing mentorship, reviews, and growth strategies.</span></li>
+                    </ul>
+
+                    <div class="mt-8">
+                        <p class="text-sm uppercase tracking-wider text-gray-500 mb-3">Availability</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">Pan‑India</span>
+                            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">Metro Cities</span>
+                            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm">Tier‑1 & Tier‑2</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                        <a href="mailto:globalbusinesssocialindia@gmail.com?subject=GBS%20Franchise%20Enquiry" class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-white font-semibold hover:opacity-90 transition-colors">
+                            Apply for Franchise
+                        </a>
+                        <a href="tel:9512002951" class="inline-flex items-center justify-center px-6 py-3 rounded-full border border-primary text-primary font-semibold hover:bg-primary  transition-colors">
+                            Call: 9512002951
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Process / Visual -->
+                <div class="relative" data-aos="fade-left">
+                    <div class="rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-white to-gray-100 border border-gray-200">
+                        <div class="p-8">
+                            <h3 class="text-2xl font-semibold text-primary mb-6">How it works</h3>
+                            <ol class="space-y-5">
+                                <li class="flex items-start space-x-3"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm">1</span><span><strong>Apply:</strong> Share your interest and region.</span></li>
+                                <li class="flex items-start space-x-3"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm">2</span><span><strong>Meet:</strong> Alignment discussion with the GBS leadership team.</span></li>
+                                <li class="flex items-start space-x-3"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm">3</span><span><strong>Onboard:</strong> Training, territory finalization, and launch planning.</span></li>
+                                <li class="flex items-start space-x-3"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center text-sm">4</span><span><strong>Launch:</strong> Start chapters, drive engagement, and grow sustainably.</span></li>
+                            </ol>
+                            <div class="mt-8 rounded-xl overflow-hidden">
+                                <img src="images/gbs2.avif" alt="GBS Community" class="w-full h-75 object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -227,56 +403,36 @@
                 <h2 class="text-4xl font-bold text-primary mb-4">Meet Our Team</h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">Passionate professionals dedicated to helping you succeed in your networking journey.</p>
             </div>
+    
             
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="team-card p-8 rounded-lg shadow-lg text-center" data-aos="fade-up" data-aos-delay="100">
                     <div class="relative mb-6 group">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                        <img src="images/Gaurav Jog.jpg" 
                              alt="Team Member" class="w-32 h-32 rounded-full mx-auto object-cover">
-                        <div class="absolute inset-0 bg-primary bg-opacity-80 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <div class="flex space-x-3">
-                                <i class="fab fa-linkedin text-white text-xl hover:text-gray-300"></i>
-                                <i class="fab fa-twitter text-white text-xl hover:text-gray-300"></i>
-                                <i class="fas fa-envelope text-white text-xl hover:text-gray-300"></i>
-                            </div>
-                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-2">Sarah Johnson</h3>
-                    <p class="text-gray-600 mb-4">Founder & CEO</p>
+                    <h3 class="text-xl font-bold text-primary mb-2">Gaurav Jogi</h3>
+                    <p class="text-gray-600 mb-4">Business Trainer</p>
                     <p class="text-sm text-gray-500">Leading the vision of connecting businesses worldwide through meaningful networking opportunities.</p>
                 </div>
                 
                 <div class="team-card p-8 rounded-lg shadow-lg text-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="relative mb-6 group">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                        <img src="images/pinkeshpatel.jpeg" 
                              alt="Team Member" class="w-32 h-32 rounded-full mx-auto object-cover">
-                        <div class="absolute inset-0 bg-primary bg-opacity-80 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <div class="flex space-x-3">
-                                <i class="fab fa-linkedin text-white text-xl hover:text-gray-300"></i>
-                                <i class="fab fa-twitter text-white text-xl hover:text-gray-300"></i>
-                                <i class="fas fa-envelope text-white text-xl hover:text-gray-300"></i>
-                            </div>
-                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-2">Michael Chen</h3>
-                    <p class="text-gray-600 mb-4">Director of Operations</p>
+                    <h3 class="text-xl font-bold text-primary mb-2">Pinkesh Patel</h3>
+                    <p class="text-gray-600 mb-4">Founder Of GBS</p>
                     <p class="text-sm text-gray-500">Ensuring smooth operations and helping chapters thrive across different regions and industries.</p>
                 </div>
                 
                 <div class="team-card p-8 rounded-lg shadow-lg text-center" data-aos="fade-up" data-aos-delay="300">
                     <div class="relative mb-6 group">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                        <img src="images/ArpitShah.jpeg" 
                              alt="Team Member" class="w-32 h-32 rounded-full mx-auto object-cover">
-                        <div class="absolute inset-0 bg-primary bg-opacity-80 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <div class="flex space-x-3">
-                                <i class="fab fa-linkedin text-white text-xl hover:text-gray-300"></i>
-                                <i class="fab fa-twitter text-white text-xl hover:text-gray-300"></i>
-                                <i class="fas fa-envelope text-white text-xl hover:text-gray-300"></i>
-                            </div>
-                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-primary mb-2">Emily Rodriguez</h3>
-                    <p class="text-gray-600 mb-4">Community Manager</p>
+                    <h3 class="text-xl font-bold text-primary mb-2">Arpit Shah</h3>
+                    <p class="text-gray-600 mb-4">Advisor Board Member</p>
                     <p class="text-sm text-gray-500">Building strong relationships and fostering collaboration within our growing network community.</p>
                 </div>
             </div>
@@ -291,38 +447,38 @@
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">Capturing moments of connection, collaboration, and success from our networking events.</p>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <div class="gallery-item rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                         alt="Networking Event" class="w-full h-48 object-cover transition-transform duration-300">
+            <div class="masonry columns-2 md:columns-3 lg:columns-4 gap-4">
+                <div class="gallery-item break-inside-avoid rounded-lg overflow-hidden shadow-lg mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/Screenshot_2025-08-10-02-03-23-91_a23b203fd3aafc6dcb84e438dda678b6.jpg" 
+                         alt="Networking Event" class="w-full object-cover transition-transform duration-300 hover:scale-105" loading="lazy">
                 </div>
-                <div class="gallery-item rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                         alt="Business Meeting" class="w-full h-48 object-cover transition-transform duration-300">
+                <div class="gallery-item break-inside-avoid rounded-lg overflow-hidden shadow-lg mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/Screenshot_2025-08-10-02-05-34-32_a23b203fd3aafc6dcb84e438dda678b6.jpg" 
+                         alt="Business Meeting" class="w-full object-cover transition-transform duration-300 hover:scale-105" loading="lazy">
                 </div>
-                <div class="gallery-item rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="300">
-                    <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                         alt="Conference" class="w-full h-48 object-cover transition-transform duration-300">
+                <div class="gallery-item break-inside-avoid rounded-lg overflow-hidden shadow-lg mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <img src="images/Screenshot_2025-08-10-02-06-06-60_a23b203fd3aafc6dcb84e438dda678b6.jpg" 
+                         alt="Conference" class="w-full object-cover transition-transform duration-300 hover:scale-105" loading="lazy">
                 </div>
-                <div class="gallery-item rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="400">
-                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                         alt="Team Work" class="w-full h-48 object-cover transition-transform duration-300">
+                <div class="gallery-item break-inside-avoid rounded-lg overflow-hidden shadow-lg mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <img src="images/Screenshot_2025-08-10-02-01-35-76_a23b203fd3aafc6dcb84e438dda678b6.jpg" 
+                         alt="Team Work" class="w-full object-cover transition-transform duration-300 hover:scale-105" loading="lazy">
                 </div>
-                <div class="gallery-item rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="500">
-                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                         alt="Workshop" class="w-full h-48 object-cover transition-transform duration-300">
+                <div class="gallery-item break-inside-avoid rounded-lg overflow-hidden shadow-lg mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <img src="images/Screenshot_2025-08-10-02-07-53-00_a23b203fd3aafc6dcb84e438dda678b6.jpg" 
+                         alt="Workshop" class="w-full object-cover transition-transform duration-300 hover:scale-105" loading="lazy">
                 </div>
-                <div class="gallery-item rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="600">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                         alt="Presentation" class="w-full h-48 object-cover transition-transform duration-300">
+                <div class="gallery-item break-inside-avoid rounded-lg overflow-hidden shadow-lg mb-4" data-aos="fade-up" data-aos-delay="600">
+                    <img src="images/Screenshot_2025-08-10-02-02-45-30_a23b203fd3aafc6dcb84e438dda678b6.jpg" 
+                         alt="Presentation" class="w-full object-cover transition-transform duration-300 hover:scale-105" loading="lazy">
                 </div>
-                <div class="gallery-item rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="700">
-                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                         alt="Collaboration" class="w-full h-48 object-cover transition-transform duration-300">
+                <div class="gallery-item break-inside-avoid rounded-lg overflow-hidden shadow-lg mb-4" data-aos="fade-up" data-aos-delay="700">
+                    <img src="images/Screenshot_2025-08-10-02-41-38-41_40deb401b9ffe8e1df2f1cc5ba480b12.jpg" 
+                         alt="Collaboration" class="w-full object-cover transition-transform duration-300 hover:scale-105" loading="lazy">
                 </div>
-                <div class="gallery-item rounded-lg overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="800">
-                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                         alt="Success" class="w-full h-48 object-cover transition-transform duration-300">
+                <div class="gallery-item break-inside-avoid rounded-lg overflow-hidden shadow-lg mb-4" data-aos="fade-up" data-aos-delay="800">
+                    <img src="images/Screenshot_2025-08-10-02-07-23-54_a23b203fd3aafc6dcb84e438dda678b6.jpg" 
+                         alt="Success" class="w-full object-cover transition-transform duration-300 hover:scale-105" loading="lazy">
                 </div>
             </div>
         </div>
@@ -349,11 +505,11 @@
                             </div>
                             <p class="text-gray-600 mb-6 italic text-lg">"Joining GBS was the best decision I made for my business. The referrals and connections I've gained have tripled my revenue in just six months."</p>
                             <div class="flex items-center justify-center">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                <img src="images/Dr Khushbu Joshi.jpeg" 
                                      alt="Client" class="w-16 h-16 rounded-full mr-4 object-cover">
                                 <div class="text-left">
-                                    <p class="font-bold text-primary">David Miller</p>
-                                    <p class="text-gray-500">CEO, Miller Marketing Solutions</p>
+                                    <p class="font-bold text-primary">Dr Khushbu Joshi</p>
+                                    <p class="text-gray-500">Physiotherapist</p>
                                 </div>
                             </div>
                         </div>
@@ -369,11 +525,11 @@
                             </div>
                             <p class="text-gray-600 mb-6 italic text-lg">"The community support and collaboration opportunities at GBS are unmatched. I've formed lasting partnerships that continue to drive my business forward."</p>
                             <div class="flex items-center justify-center">
-                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                <img src="images/Swati Mali.jpeg" 
                                      alt="Client" class="w-16 h-16 rounded-full mr-4 object-cover">
                                 <div class="text-left">
-                                    <p class="font-bold text-primary">Rachel Thompson</p>
-                                    <p class="text-gray-500">Founder, Thompson Consulting</p>
+                                    <p class="font-bold text-primary">Swati Mali</p>
+                                    <p class="text-gray-500">Founder, Mantavya</p>
                                 </div>
                             </div>
                         </div>
@@ -389,11 +545,11 @@
                             </div>
                             <p class="text-gray-600 mb-6 italic text-lg">"GBS provided me with the network and resources I needed to expand into new markets. The quality of connections is exceptional."</p>
                             <div class="flex items-center justify-center">
-                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                <img src="images/Jigar.jpeg" 
                                      alt="Client" class="w-16 h-16 rounded-full mr-4 object-cover">
                                 <div class="text-left">
-                                    <p class="font-bold text-primary">James Wilson</p>
-                                    <p class="text-gray-500">Director, Wilson Enterprises</p>
+                                    <p class="font-bold text-primary">Jigar Patel</p>
+                                    <p class="text-gray-500">Founder, Smart Wire</p>
                                 </div>
                             </div>
                         </div>
@@ -415,42 +571,48 @@
             <div class="grid md:grid-cols-2 gap-12">
                 <div data-aos="fade-right">
                     <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt text-2xl mr-4"></i>
-                            <div>
-                                <p class="font-semibold">Address</p>
-                                <p>123 Business Avenue, Suite 100, New York, NY 10001</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-phone text-2xl mr-4"></i>
-                            <div>
-                                <p class="font-semibold">Phone</p>
-                                <p>+1 (555) 123-4567</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-envelope text-2xl mr-4"></i>
-                            <div>
-                                <p class="font-semibold">Email</p>
-                                <p>info@globalbusinesssocial.com</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-clock text-2xl mr-4"></i>
-                            <div>
-                                <p class="font-semibold">Business Hours</p>
-                                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                            </div>
-                        </div>
-                    </div>
+              <div class="space-y-4">
+    <div class="flex items-center">
+        <i class="fas fa-map-marker-alt text-2xl mr-4"></i>
+        <div>
+            <p class="font-semibold">Address</p>
+            <a href="https://maps.app.goo.gl/iru7gG1VtaBqb4P88" 
+               target="_blank" 
+               class="hover:underline">
+                SNS Business Park, 304, Udhana - Magdalla Rd, opp. J H Ambani School, Piplod,
+                Surat, Gujarat 395007
+            </a>
+        </div>
+    </div>
+    <div class="flex items-center">
+        <i class="fas fa-phone text-2xl mr-4"></i>
+        <div>
+            <p class="font-semibold">Phone</p>
+            <a href="tel:9512002951" class="hover:underline">9512002951</a>
+        </div>
+    </div>
+    <div class="flex items-center">
+        <i class="fas fa-envelope text-2xl mr-4"></i>
+        <div>
+            <p class="font-semibold">Email</p>
+            <a href="mailto:globalbusinesssocialindia@gmail.com" class="hover:underline">
+                globalbusinesssocialindia@gmail.com
+            </a>
+        </div>
+    </div>
+    <div class="flex items-center">
+        <i class="fas fa-clock text-2xl mr-4"></i>
+        <div>
+            <p class="font-semibold">Business Hours</p>
+            <p>Monday - Saturday: 10:00 AM - 7:00 PM</p>
+        </div>
+    </div>
+</div>
+
                     
                     <!-- Google Maps Embed -->
                     <div class="mt-8">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.3634419!2d-74.0059!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQyJzQ2LjEiTiA3NMKwMDAnMjEuMiJX!5e0!3m2!1sen!2sus!4v1234567890" 
-                                width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" 
-                                class="rounded-lg shadow-lg"></iframe>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.9946654292194!2d72.77236227471772!3d21.152610583514228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04d0046bbad41%3A0xdbd331eda2bee26c!2sSNS%20Business%20Park!5e0!3m2!1sen!2sin!4v1754842564776!5m2!1sen!2sin" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
                 
@@ -556,18 +718,29 @@
                 <!-- Company Info -->
                 <div>
                     <div class="flex items-center space-x-2 mb-6">
-                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                            <i class="fas fa-network-wired text-primary text-xl"></i>
-                        </div>
                         <span class="text-2xl font-bold">GBS</span>
                     </div>
                     <p class="text-gray-300 mb-6">Empowering businesses to connect, collaborate, and grow through strategic networking opportunities worldwide.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-2xl hover:text-gray-300 transition-colors"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-2xl hover:text-gray-300 transition-colors"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-2xl hover:text-gray-300 transition-colors"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-2xl hover:text-gray-300 transition-colors"><i class="fab fa-instagram"></i></a>
-                    </div>
+                  <div class="flex space-x-4">
+    <a href="https://youtube.com/@globalbusinesssocial?si=jv46-AMRl8GnxUeT" 
+       target="_blank" 
+       class="text-2xl hover:text-gray-300 transition-colors">
+        <i class="fab fa-youtube"></i>
+    </a>
+
+    <a href="https://www.facebook.com/share/1HjFxsHeY1/" 
+       target="_blank" 
+       class="text-2xl hover:text-gray-300 transition-colors">
+        <i class="fab fa-facebook"></i>
+    </a>
+
+    <a href="https://www.instagram.com/official_gbs_india?igsh=MXR5bGRycXQxMXNycQ==" 
+       target="_blank" 
+       class="text-2xl hover:text-gray-300 transition-colors">
+        <i class="fab fa-instagram"></i>
+    </a>
+</div>
+
                 </div>
                 
                 <!-- Quick Links -->
@@ -579,28 +752,38 @@
                         <li><a href="#connect" class="text-gray-300 hover:text-white transition-colors">Connect</a></li>
                         <li><a href="#team" class="text-gray-300 hover:text-white transition-colors">Our Team</a></li>
                         <li><a href="#gallery" class="text-gray-300 hover:text-white transition-colors">Gallery</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="Privacy Policy.html" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="Terms of Conditions.html" class="text-gray-300 hover:text-white transition-colors">Terms of Conditions</a></li>
                     </ul>
                 </div>
                 
                 <!-- Contact Info -->
                 <div>
                     <h3 class="text-xl font-bold mb-6">Contact Info</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <i class="fas fa-map-marker-alt text-xl mr-3"></i>
-                            <p class="text-gray-300">123 Business Avenue, Suite 100<br>New York, NY 10001</p>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-phone text-xl mr-3"></i>
-                            <p class="text-gray-300">+1 (555) 123-4567</p>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-envelope text-xl mr-3"></i>
-                            <p class="text-gray-300">info@globalbusinesssocial.com</p>
-                        </div>
-                    </div>
+                  <div class="space-y-4">
+    <div class="flex items-center">
+        <i class="fas fa-map-marker-alt text-xl mr-3"></i>
+        <a href="https://maps.app.goo.gl/iru7gG1VtaBqb4P88" 
+           target="_blank" 
+           class="text-gray-300 hover:underline">
+            SNS Business Park, 304, Udhana - Magdalla Rd, opp. J H Ambani School, Piplod,
+            Surat, Gujarat 395007
+        </a>
+    </div>
+    <div class="flex items-center">
+        <i class="fas fa-phone text-xl mr-3"></i>
+        <a href="tel:9512002951" class="text-gray-300 hover:underline">
+            9512002951
+        </a>
+    </div>
+    <div class="flex items-center">
+        <i class="fas fa-envelope text-xl mr-3"></i>
+        <a href="mailto:globalbusinesssocialindia@gmail.com" class="text-gray-300 hover:underline">
+            globalbusinesssocialindia@gmail.com
+        </a>
+    </div>
+</div>
+
                 </div>
             </div>
             
@@ -667,15 +850,31 @@
             },
         });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('navbar-sticky');
-            } else {
-                navbar.classList.remove('navbar-sticky');
-            }
+        // Initialize Product Swiper
+        const productSwiper = new Swiper('.product-swiper', {
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.product-pagination',
+                clickable: true,
+            },
+            effect: 'slide',
+            slidesPerView: 1,
+            spaceBetween: 16,
         });
+
+        // Navbar scroll effect
+        // window.addEventListener('scroll', function() {
+        //     const navbar = document.getElementById('navbar');
+        //     if (window.scrollY > 50) {
+        //         navbar.classList.add('navbar-sticky');
+        //     } else {
+        //         navbar.classList.remove('navbar-sticky');
+        //     }
+        // });
 
         // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');

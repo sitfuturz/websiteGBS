@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy - GBS</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Swiper JS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #540A0E;
+      --secondary: #FFFFFF;
+      --accent: #a22a30;
+    }
+
+    .bg-primary { background-color: var(--primary); }
+    .text-primary { color: var(--primary); }
+    .border-primary { border-color: var(--primary); }
+
+    #navbar { backdrop-filter: blur(10px); background: var(--secondary); }
+    #navbar a { color: var(--primary); }
+    #navbar a:hover { color: var(--accent); }
+
+    /* Back to Top styles */
+    .back-to-top {
+      position: fixed;
+      right: 1.25rem; /* 20px */
+      bottom: 1.25rem;
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary), #7b1a20);
+      color: #fff;
+      border-radius: 9999px;
+      border: 2px solid rgba(255,255,255,0.8);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.25), 0 6px 6px rgba(0,0,0,0.2);
+      opacity: 0;
+      transform: translateY(12px) scale(0.95);
+      transition: opacity .3s ease, transform .3s ease, box-shadow .3s ease, background .3s ease;
+      pointer-events: none;
+      cursor: pointer;
+      z-index: 60;
+    }
+    .back-to-top:hover { transform: translateY(0) scale(1); box-shadow: 0 16px 24px rgba(0,0,0,0.3); }
+    .back-to-top i { font-size: 1rem; }
+    .back-to-top.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+
+    /* Content helpers */
+    .content h2, .content h3 { color: var(--primary); }
+    .content p { color: #4b5563; }
+    .content ul { list-style: disc; padding-left: 1.25rem; }
+  </style>
+</head>
+<body class="font-sans">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-4">
+    <div class="container mx-auto px-4 flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <img src="./images/gbs-logo (1).png" alt="GBS" class="h-16" />
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="index.html#home" class="hover:opacity-80">Home</a>
+        <a href="index.html#about" class="hover:opacity-80">About</a>
+        <a href="index.html#product" class="hover:opacity-80">Product</a>
+        <a href="index.html#franchise" class="hover:opacity-80">Franchise</a>
+        <a href="index.html#connect" class="hover:opacity-80">Connect</a>
+        <a href="index.html#team" class="hover:opacity-80">Team</a>
+        <a href="index.html#gallery" class="hover:opacity-80">Gallery</a>
+      </div>
+
+      <!-- Join Button -->
+      <div class="hidden md:block">
+        <a href="https://gbs-connect.com/">
+          <button class="bg-primary text-white px-6 py-2 rounded-full font-semibold hover:opacity-90 transition-colors">
+            Join Now
+          </button>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button id="mobile-menu-btn" class="text-primary text-2xl">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden bg-white hidden border-t border-gray-200">
+      <div class="container mx-auto px-4 py-4 space-y-4">
+        <a href="index.html#home" class="block text-primary py-2">Home</a>
+        <a href="index.html#about" class="block text-primary py-2">About</a>
+        <a href="index.html#product" class="block text-primary py-2">Product</a>
+        <a href="index.html#franchise" class="block text-primary py-2">Franchise</a>
+        <a href="index.html#connect" class="block text-primary py-2">Connect</a>
+        <a href="index.html#team" class="block text-primary py-2">Team</a>
+        <a href="index.html#gallery" class="block text-primary py-2">Gallery</a>
+        <a href="https://gbs-connect.com/">
+          <button class="bg-primary text-white px-6 py-2 rounded-full font-semibold w-full">Join Now</button>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="pt-28 bg-primary text-white">
+    <div class="container mx-auto px-4 py-16">
+      <div class="max-w-3xl" data-aos="fade-up">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Privacy Policy</h1>
+        <p class="text-white/90 text-lg">This website is owned & operated by Global Business Social. Your privacy is important to us.</p>
+        <p class="mt-3 text-white/70 text-sm">Last updated: August 10, 2025</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Policy Content -->
+  <main class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-12 gap-8">
+        <!-- Sidebar / Outline -->
+        <aside class="md:col-span-4 lg:col-span-3" data-aos="fade-right">
+          <div class="bg-white rounded-xl shadow p-6 sticky top-28">
+            <h3 class="text-primary font-semibold mb-4">On this page</h3>
+            <nav class="space-y-3 text-sm">
+              <a href="#info-we-collect" class="block text-gray-700 hover:text-primary">1. Information We Collect</a>
+              <a href="#how-we-use" class="block text-gray-700 hover:text-primary">2. How We Use Your Information</a>
+              <a href="#info-sharing" class="block text-gray-700 hover:text-primary">3. Information Sharing</a>
+              <a href="#data-security" class="block text-gray-700 hover:text-primary">4. Data Security</a>
+              <a href="#your-rights" class="block text-gray-700 hover:text-primary">5. Your Rights</a>
+              <a href="#changes" class="block text-gray-700 hover:text-primary">6. Changes to This Policy</a>
+            </nav>
+          </div>
+        </aside>
+
+        <!-- Content -->
+        <section class="md:col-span-8 lg:col-span-9">
+          <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 content" data-aos="fade-up">
+            <div class="prose max-w-none">
+              <p class="text-gray-600 mb-8">This Privacy Policy explains how Global Business Social ("GBS", "we", "us") collects, uses, and safeguards your information when you use our website and services.</p>
+
+              <h2 id="info-we-collect" class="text-2xl md:text-3xl font-bold mb-4">1. Information We Collect</h2>
+              <div class="space-y-2 mb-8">
+                <p><span class="font-semibold">Personal Information:</span> We collect personal details such as your name, email address, shipping address, phone number, and payment information when you make a purchase, create an account, or contact us.</p>
+                <p><span class="font-semibold">Non-Personal Information:</span> We may collect non-personal data such as browser type, operating system, and browsing behavior to improve our website and services.</p>
+              </div>
+
+              <h2 id="how-we-use" class="text-2xl md:text-3xl font-bold mb-4">2. How We Use Your Information</h2>
+              <ul class="space-y-2 mb-8 list-disc pl-5 text-gray-700">
+                <li><span class="font-semibold">To Process Orders:</span> We use your personal information to process and fulfill your orders.</li>
+                <li><span class="font-semibold">To Communicate:</span> We use your contact information to send you updates about your order, respond to inquiries, and send promotional materials if you have opted in.</li>
+                <li><span class="font-semibold">To Improve Our Services:</span> We analyze non-personal information to understand user behavior and enhance our website’s performance.</li>
+              </ul>
+
+              <h2 id="info-sharing" class="text-2xl md:text-3xl font-bold mb-4">3. Information Sharing</h2>
+              <ul class="space-y-2 mb-8 list-disc pl-5 text-gray-700">
+                <li><span class="font-semibold">Third-Party Service Providers:</span> We may share your information with third-party service providers who assist us in operating our website, processing payments, and delivering orders.</li>
+                <li><span class="font-semibold">Legal Requirements:</span> We may disclose your information if required by law or to protect our rights.</li>
+              </ul>
+
+              <h2 id="data-security" class="text-2xl md:text-3xl font-bold mb-4">4. Data Security</h2>
+              <p class="mb-8">We implement appropriate security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.</p>
+
+              <h2 id="your-rights" class="text-2xl md:text-3xl font-bold mb-4">5. Your Rights</h2>
+              <ul class="space-y-2 mb-8 list-disc pl-5 text-gray-700">
+                <li><span class="font-semibold">Access and Correction:</span> You have the right to access and correct your personal information. You can update your account details through our website.</li>
+                <li><span class="font-semibold">Opt-Out:</span> You can opt-out of receiving promotional emails by following the unsubscribe instructions in the emails.</li>
+              </ul>
+
+              <h2 id="changes" class="text-2xl md:text-3xl font-bold mb-4">6. Changes to This Policy</h2>
+              <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page, and the revised date will be indicated at the top of the policy.</p>
+
+              <div class="mt-10 p-5 rounded-lg bg-primary/5 border border-primary/10">
+                <p class="text-sm text-gray-700">If you have any questions about this Privacy Policy or our data practices, contact us at <a href="mailto:globalbusinesssocialindia@gmail.com" class="text-primary underline">globalbusinesssocialindia@gmail.com</a> or call <a href="tel:9512002951" class="text-primary underline">9512002951</a>.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <!-- Company Info -->
+        <div>
+          <div class="flex items-center space-x-2 mb-6">
+            <span class="text-2xl font-bold">GBS</span>
+          </div>
+          <p class="text-gray-300 mb-6">Empowering businesses to connect, collaborate, and grow through strategic networking opportunities worldwide.</p>
+          <div class="flex space-x-4">
+            <a href="https://youtube.com/@globalbusinesssocial?si=jv46-AMRl8GnxUeT" target="_blank" class="text-2xl hover:text-gray-300 transition-colors"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/share/1HjFxsHeY1/" target="_blank" class="text-2xl hover:text-gray-300 transition-colors"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/official_gbs_india?igsh=MXR5bGRycXQxMXNycQ==" target="_blank" class="text-2xl hover:text-gray-300 transition-colors"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-xl font-bold mb-6">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="index.html#home" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+            <li><a href="index.html#about" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
+            <li><a href="index.html#connect" class="text-gray-300 hover:text-white transition-colors">Connect</a></li>
+            <li><a href="index.html#team" class="text-gray-300 hover:text-white transition-colors">Our Team</a></li>
+            <li><a href="index.html#gallery" class="text-gray-300 hover:text-white transition-colors">Gallery</a></li>
+            <li><a href="Privacy Policy.html" class="text-gray-300 hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="https://globalbusinesssocial.com/terms-and-conditions" class="text-gray-300 hover:text-white transition-colors">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h3 class="text-xl font-bold mb-6">Contact Info</h3>
+          <div class="space-y-4">
+            <div class="flex items-center">
+              <i class="fas fa-map-marker-alt text-xl mr-3"></i>
+              <a href="https://maps.app.goo.gl/iru7gG1VtaBqb4P88" target="_blank" class="text-gray-300 hover:underline">SNS Business Park, 304, Udhana - Magdalla Rd, opp. J H Ambani School, Piplod, Surat, Gujarat 395007</a>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-phone text-xl mr-3"></i>
+              <a href="tel:9512002951" class="text-gray-300 hover:underline">9512002951</a>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-envelope text-xl mr-3"></i>
+              <a href="mailto:globalbusinesssocialindia@gmail.com" class="text-gray-300 hover:underline">globalbusinesssocialindia@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-600 pt-8 text-center">
+        <p class="text-gray-300">&copy; 2025 Global Business Social (GBS). All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({ duration: 1000, once: true, offset: 100 });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', function () {
+      mobileMenu.classList.toggle('hidden');
+      const icon = mobileMenuBtn.querySelector('i');
+      icon.className = mobileMenu.classList.contains('hidden') ? 'fas fa-bars' : 'fas fa-times';
+    });
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+    backToTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
